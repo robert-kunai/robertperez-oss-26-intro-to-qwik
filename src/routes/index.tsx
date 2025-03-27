@@ -1,14 +1,20 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
+import { Tile } from "../components/tile";
+import data from "../data/data.json";
 
 export default component$(() => {
   return (
     <>
-      <h1>Hi 👋</h1>
-      <div>
-        Can't wait to see what you build with qwik!
-        <br />
-        Happy coding.
+      {data.map((item) => (
+        <Tile key={item.name} src={item.logo} name={item.name} description={item.description} isActive={item.isActive} />
+      ))}
+      <div class="attribution">
+        Challenge by{" Robert Perez "}
+        <a href="https://www.frontendmentor.io?ref=challenge">
+          Frontend Mentor
+        </a>
+        . Coded by <a href="#">Your Name Here</a>.
       </div>
     </>
   );
