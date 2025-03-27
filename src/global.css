@@ -17,7 +17,7 @@
 }
 
 :root {
-  /* Colors */
+  /* Colors - Light Theme */
   --color-neutral-900: hsl(227, 75%, 14%);
   --color-neutral-800: hsl(226, 25%, 17%);
   --color-neutral-700: hsl(180, 100%, 0.20%);
@@ -40,6 +40,18 @@
   --font-size-base: 16px;
 }
 
+/* Dark Theme Colors */
+[data-theme="dark"] {
+  --color-neutral-900: hsl(200, 60%, 99%);
+  --color-neutral-800: hsl(0, 0%, 93%);
+  --color-neutral-700: hsl(0, 0%, 78%);
+  --color-neutral-600: hsl(217, 61%, 90%);
+  --color-neutral-300: hsl(226, 11%, 37%);
+  --color-neutral-200: hsl(180, 100%, 0.20%);
+  --color-neutral-100: hsl(226, 25%, 17%);
+  --color-neutral-0: hsl(227, 75%, 14%);
+}
+
 /* Reset and Base Styles */
 * {
   margin: 0;
@@ -55,6 +67,11 @@ body {
   background: var(--gradient-light);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] body {
+  background: var(--gradient-dark);
 }
 
 /* Responsive Container */

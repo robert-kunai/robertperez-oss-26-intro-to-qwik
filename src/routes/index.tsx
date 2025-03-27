@@ -2,11 +2,13 @@ import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Tile } from "../components/tile/tile";
 import { Attribution } from "../components/footer/attribution";
+import { Header } from "~/components/header/header";
 import data from "../data/data.json";
 
 export default component$(() => {
   return (
     <>
+    <Header />
       {data.map((item) => (
         <Tile key={item.name} src={item.logo} name={item.name} description={item.description} isActive={item.isActive} />
       ))}
