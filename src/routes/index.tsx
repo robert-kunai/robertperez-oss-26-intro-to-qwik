@@ -1,6 +1,6 @@
 import { component$ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
-import { Tile } from "../components/tile";
+import { Tile } from "../components/tile/tile";
 import data from "../data/data.json";
 
 export default component$(() => {
