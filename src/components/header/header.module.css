@@ -2,7 +2,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0;
+    padding: 1rem;
+
 }
 
 .themeToggle {
@@ -26,9 +27,4 @@
     height: 24px;
     color: var(--color-neutral-900);
     transition: color 0.3s ease;
-}
-
-/* Dark mode specific styles */
-[data-theme="dark"] .themeToggle svg {
-    color: var(--color-neutral-0);
 }

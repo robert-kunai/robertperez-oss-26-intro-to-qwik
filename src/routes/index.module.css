@@ -1,0 +1,9 @@
+.tileContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 0;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+} 

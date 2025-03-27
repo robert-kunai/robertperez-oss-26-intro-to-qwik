@@ -4,5 +4,5 @@ import {
 } from '@builder.io/qwik';
  
 export const ThemeContext = createContextId<Signal<string>>(
-  'theme-context'
+  'theme'
 );

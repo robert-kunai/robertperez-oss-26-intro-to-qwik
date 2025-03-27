@@ -77,9 +77,11 @@ body {
 /* Responsive Container */
 .container {
   width: 100%;
-  max-width: 1440px;
+  max-width: 100%;
   margin: 0 auto;
   padding: 0 1rem;
+  font-family: var(--font-family-base);
+  display: flex;
 }
 
 @media (min-width: 375px) {
