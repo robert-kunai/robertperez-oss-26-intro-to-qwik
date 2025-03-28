@@ -10,7 +10,9 @@ export const Header = component$(() => {
 
   return (
     <div class={styles.header}>
-      <Logo />
+      <span class={styles.logo}>
+        <Logo /> Extensions
+      </span>
       <button 
         onClick$={toggleTheme}
         class={styles.themeToggle}

@@ -34,3 +34,18 @@
     color: var(--color-neutral-900);
     transition: color 0.3s ease;
 }
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.125rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    max-width: fit-content;
+}
+
+.logo svg {
+    width: 32px;
+    height: 32px;
+    display: block;
+}

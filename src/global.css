@@ -47,9 +47,12 @@
   --color-neutral-700: hsl(0, 0%, 78%);
   --color-neutral-600: hsl(217, 61%, 90%);
   --color-neutral-300: hsl(226, 11%, 37%);
-  --color-neutral-200: hsl(180, 100%, 0.20%);
+  --color-neutral-200: hsl(225, 15%, 25%);
   --color-neutral-100: hsl(226, 25%, 17%);
-  --color-neutral-0: hsl(227, 75%, 14%);
+  --color-neutral-0: hsl(227, 75%, 7%);
+  
+  /* Dark theme gradients */
+  --gradient-dark: linear-gradient(180deg, hsl(227, 75%, 5%) 0%, hsl(227, 75%, 8%) 100%);
 }
 
 /* Reset and Base Styles */

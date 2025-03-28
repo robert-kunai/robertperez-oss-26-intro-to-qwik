@@ -9,6 +9,14 @@
   align-items: center;
   text-align: center;
   width: 100%;
+  position: relative;
+}
+
+[data-theme="dark"] .tile {
+  background: hsl(225, 60%, 10%);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  padding: 0 0 24px 0;
+  overflow: hidden;
 }
 
 .tile:hover {
@@ -16,10 +24,21 @@
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
+[data-theme="dark"] .tile:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
 .tile img {
   width: 64px;
   height: 64px;
   margin-bottom: 16px;
+}
+
+[data-theme="dark"] .tile img {
+  background-color: hsl(166, 60%, 92%);
+  padding: 12px;
+  border-radius: 8px;
+  margin: 24px auto 16px;
 }
 
 .tile h2 {
@@ -34,6 +53,7 @@
   margin: 0 0 16px 0;
   font-size: 0.875rem;
   line-height: 1.5;
+  padding: 0 12px;
 }
 
 .button {
@@ -58,4 +78,59 @@
 
 .button.remove:hover {
   background: var(--color-red-700);
+}
+
+/* Toggle switch styling */
+.toggleSwitch {
+  display: none;
+}
+
+/* Toggle switch styling for dark mode */
+[data-theme="dark"] .tile .toggleSwitch {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 20px;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+  display: block;
+}
+
+[data-theme="dark"] .tile::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 20px;
+  background-color: hsl(210, 10%, 23%);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+
+[data-theme="dark"] .tile.active::after {
+  background-color: hsl(210, 10%, 23%);
+}
+
+[data-theme="dark"] .tile::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 38px;
+  transform: translateY(-50%);
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  border-radius: 50%;
+  z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+[data-theme="dark"] .tile.active::before {
+  transform: translate(22px, -50%);
+  background-color: var(--color-red-500);
 } 
