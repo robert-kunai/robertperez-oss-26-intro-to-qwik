@@ -5,20 +5,39 @@ import { Filter, type FilterType } from "../components/filter/filter";
 import data from "../data/data.json";
 import styles from "./index.module.css";
 
+// Define a type for the extension data
+interface Extension {
+  logo: string;
+  name: string;
+  description: string;
+  isActive: boolean;
+}
+
 export default component$(() => {
   const activeFilter = useSignal<FilterType>("all");
+  // Create a signal for the extensions data so we can modify it
+  const extensions = useSignal<Extension[]>(data);
 
   const handleFilterChange$ = $((filter: FilterType) => {
     activeFilter.value = filter;
   });
 
+  const toggleExtensionActive$ = $((name: string) => {
+    extensions.value = extensions.value.map(ext => {
+      if (ext.name === name) {
+        return { ...ext, isActive: !ext.isActive };
+      }
+      return ext;
+    });
+  });
+
   const filteredData = () => {
     if (activeFilter.value === "all") {
-      return data;
+      return extensions.value;
     } else if (activeFilter.value === "active") {
-      return data.filter(item => item.isActive);
+      return extensions.value.filter(item => item.isActive);
     } else {
-      return data.filter(item => !item.isActive);
+      return extensions.value.filter(item => !item.isActive);
     }
   };
 
@@ -30,7 +49,14 @@ export default component$(() => {
       
       <div class={styles.tileContainer}>
         {filteredData().map((item) => (
-          <Tile key={item.name} src={item.logo} name={item.name} description={item.description} isActive={item.isActive} />
+          <Tile 
+            key={item.name} 
+            src={item.logo} 
+            name={item.name} 
+            description={item.description} 
+            isActive={item.isActive} 
+            onToggleActive$={toggleExtensionActive$}
+          />
         ))}
       </div>
     </>
