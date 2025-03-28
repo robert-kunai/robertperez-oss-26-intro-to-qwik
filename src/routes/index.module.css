@@ -2,6 +2,7 @@
   font-size: 2rem;
   font-weight: 700;
   margin: 1.5rem 0 1rem;
+  font-family: var(--font-family-base);
 }
 
 .filterContainer {
@@ -19,21 +20,22 @@
   cursor: pointer;
   font-weight: 500;
   transition: all 0.2s ease;
+  font-family: var(--font-family-base);
 }
 
 .filterButton.active {
   background-color: var(--color-red-500);
-  color: white;
+  color: var(--color-neutral-0);
 }
 
 [data-theme="dark"] .filterButton {
-  background-color: hsl(225, 35%, 25%);
-  color: hsl(220, 15%, 70%);
+  background-color: var(--color-neutral-200);
+  color: var(--color-neutral-600);
 }
 
 [data-theme="dark"] .filterButton.active {
-  background-color: hsl(3, 86%, 64%);
-  color: white;
+  background-color: var(--color-red-400);
+  color: var(--color-neutral-0);
 }
 
 .tileContainer {
