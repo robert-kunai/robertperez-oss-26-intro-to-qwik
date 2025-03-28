@@ -19,11 +19,11 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 export default component$(() => {
   return (
     <ThemeProvider>
-      <Header />
       <div class="container">
+        <Header />
         <Slot />
+        <Attribution />
       </div>
-      <Attribution />
     </ThemeProvider>
   );
 });
