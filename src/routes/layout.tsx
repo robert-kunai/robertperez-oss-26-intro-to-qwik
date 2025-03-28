@@ -3,7 +3,7 @@ import "../global.css";
 import type { RequestHandler } from "@builder.io/qwik-city";
 import { Header } from "~/components/header/header";
 import { Attribution } from "~/components/footer/attribution";
-//import { ThemeContext } from "~/context/theme-context";
+import { ThemeProvider } from "~/context/theme-context";
 
 export const onGet: RequestHandler = async ({ cacheControl }) => {
   // Control caching for this request for best performance and to reduce hosting costs:
@@ -17,15 +17,13 @@ export const onGet: RequestHandler = async ({ cacheControl }) => {
 };
 
 export default component$(() => {
-  // const theme = useContext(ThemeContext);
-
   return (
-    <>
+    <ThemeProvider>
       <Header />
       <div class="container">
         <Slot />
       </div>
       <Attribution />
-    </>
+    </ThemeProvider>
   );
 });
