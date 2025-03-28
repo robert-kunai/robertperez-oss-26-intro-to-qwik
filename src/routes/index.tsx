@@ -15,7 +15,6 @@ interface Extension {
 
 export default component$(() => {
   const activeFilter = useSignal<FilterType>("all");
-  // Create a signal for the extensions data so we can modify it
   const extensions = useSignal<Extension[]>(data);
 
   const handleFilterChange$ = $((filter: FilterType) => {
@@ -23,12 +22,14 @@ export default component$(() => {
   });
 
   const toggleExtensionActive$ = $((name: string) => {
-    extensions.value = extensions.value.map(ext => {
+    const updatedExtensions = extensions.value.map(ext => {
       if (ext.name === name) {
         return { ...ext, isActive: !ext.isActive };
       }
       return ext;
     });
+
+    extensions.value = [...updatedExtensions];
   });
 
   const filteredData = () => {

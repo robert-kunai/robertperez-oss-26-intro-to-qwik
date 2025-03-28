@@ -2,13 +2,12 @@
   box-sizing: border-box;
   background: var(--color-neutral-0);
   border-radius: 12px;
-  padding: 0 0 1rem 0;
+  padding: 1.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -29,32 +28,44 @@
 }
 
 .tile img {
-  width: 64px;
-  height: 64px;
-  margin: 24px auto 16px;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  object-fit: contain;
 }
 
 [data-theme="dark"] .tile img {
   background-color: var(--color-neutral-0);
-  padding: 12px;
+  padding: 8px;
   border-radius: 8px;
 }
 
 .tile h2 {
   color: var(--color-neutral-900);
   font-weight: 700;
-  margin: 0 0 8px 0;
+  margin: 0 0 0.5rem 0;
   font-size: 1.25rem;
   font-family: var(--font-family-base);
+  text-align: left;
 }
 
 .tile p {
   color: var(--color-neutral-600);
-  margin: 0 0 16px 0;
+  margin: 0;
   font-size: 0.875rem;
   line-height: 1.5;
-  padding: 0 12px;
+  padding: 0;
   font-family: var(--font-family-base);
+  text-align: left;
+}
+
+.tileContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  width: 100%;
 }
 
 .button {
@@ -86,7 +97,8 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 0 1rem;
+  padding: 0;
+  margin-top: auto;
 }
 
 /* Toggle switch styling */
