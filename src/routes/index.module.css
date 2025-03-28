@@ -38,7 +38,7 @@
 
 .tileContainer {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
   padding: 2rem 0;
   width: 100%;
@@ -52,12 +52,14 @@
 }
 
 @media (max-width: 1024px) {
+  .tileContainer,
   [data-theme="dark"] .tileContainer {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 640px) {
+  .tileContainer,
   [data-theme="dark"] .tileContainer {
     grid-template-columns: 1fr;
   }
