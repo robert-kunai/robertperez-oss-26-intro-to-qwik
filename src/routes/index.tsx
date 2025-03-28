@@ -44,10 +44,14 @@ export default component$(() => {
 
   return (
     <>
-      <h1 class={styles.pageTitle}>Extensions List</h1>
-      
-      <Filter activeFilter={activeFilter.value} onFilterChange$={handleFilterChange$} />
-      
+      <div class={styles.container}>
+        <h1 class={styles.pageTitle}>Extensions List</h1>
+        <Filter
+          activeFilter={activeFilter.value}
+          onFilterChange$={handleFilterChange$}
+        />
+      </div>
+
       <div class={styles.tileContainer}>
         {filteredData().map((item) => (
           <Tile 
