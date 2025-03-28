@@ -83,61 +83,61 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
-  position: relative;
   width: 100%;
   padding: 0 1rem;
 }
 
 /* Toggle switch styling */
-.toggleSwitch {
-  position: absolute;
-  top: 50%;
-  right: 16px;
-  transform: translateY(-50%);
+.toggleLabel {
+  position: relative;
+  display: inline-block;
   width: 40px;
   height: 20px;
-  opacity: 0;
-  z-index: 2;
   cursor: pointer;
-  display: block;
 }
 
-/* Toggle track styling */
-.buttonContainer::after {
-  content: "";
+.toggleSwitch {
+  opacity: 0;
+  width: 0;
+  height: 0;
   position: absolute;
-  top: 50%;
-  right: 16px;
-  transform: translateY(-50%);
-  width: 40px;
-  height: 20px;
+}
+
+.toggleTrack {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   background-color: var(--color-neutral-300);
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
 
-[data-theme="dark"] .buttonContainer::after {
+[data-theme="dark"] .toggleTrack {
   background-color: hsl(210, 10%, 23%);
 }
 
-/* Toggle dot styling */
-.buttonContainer::before {
+.toggleTrack::before {
   content: "";
   position: absolute;
-  top: 50%;
-  right: 38px;
-  transform: translateY(-50%);
+  left: 3px;
+  bottom: 3px;
   width: 14px;
   height: 14px;
   background-color: white;
   border-radius: 50%;
-  z-index: 1;
   transition: transform 0.3s ease;
 }
 
-/* Active toggle state */
-.tile.active .buttonContainer::before {
-  transform: translate(22px, -50%);
+.toggleSwitch:checked + .toggleTrack {
   background-color: var(--color-red-500);
+}
+
+.toggleSwitch:checked + .toggleTrack::before {
+  transform: translateX(20px);
+}
+
+.toggleSwitch:focus + .toggleTrack {
+  box-shadow: 0 0 1px var(--color-red-500);
 } 

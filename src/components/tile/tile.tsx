@@ -15,14 +15,17 @@ export const Tile = component$<ITileProps>(({ src, name, description, isActive, 
         >
           {isActive ? "Remove" : "Add to Chrome"}
         </button>
-        <input 
-          type="checkbox" 
-          checked={isActive} 
-          class={styles.toggleSwitch}
-          aria-label={`Toggle ${name} extension`}
-          onChange$={() => onToggleActive$(name)}
-        />
-        </div>
+        <label class={styles.toggleLabel}>
+          <input 
+            type="checkbox" 
+            checked={isActive} 
+            class={styles.toggleSwitch}
+            aria-label={`Toggle ${name} extension`}
+            onChange$={() => onToggleActive$(name)}
+          />
+          <span class={styles.toggleTrack}></span>
+        </label>
+      </div>
     </div>
   );
 }); 
