@@ -1,22 +1,35 @@
-import { component$ } from "@builder.io/qwik";
+import { component$, useSignal, $ } from "@builder.io/qwik";
 import type { DocumentHead } from "@builder.io/qwik-city";
 import { Tile } from "../components/tile/tile";
+import { Filter, type FilterType } from "../components/filter/filter";
 import data from "../data/data.json";
 import styles from "./index.module.css";
 
 export default component$(() => {
+  const activeFilter = useSignal<FilterType>("all");
+
+  const handleFilterChange$ = $((filter: FilterType) => {
+    activeFilter.value = filter;
+  });
+
+  const filteredData = () => {
+    if (activeFilter.value === "all") {
+      return data;
+    } else if (activeFilter.value === "active") {
+      return data.filter(item => item.isActive);
+    } else {
+      return data.filter(item => !item.isActive);
+    }
+  };
+
   return (
     <>
       <h1 class={styles.pageTitle}>Extensions List</h1>
       
-      <div class={styles.filterContainer}>
-        <button class={`${styles.filterButton} ${styles.active}`}>All</button>
-        <button class={styles.filterButton}>Active</button>
-        <button class={styles.filterButton}>Inactive</button>
-      </div>
+      <Filter activeFilter={activeFilter.value} onFilterChange$={handleFilterChange$} />
       
       <div class={styles.tileContainer}>
-        {data.map((item) => (
+        {filteredData().map((item) => (
           <Tile key={item.name} src={item.logo} name={item.name} description={item.description} isActive={item.isActive} />
         ))}
       </div>
