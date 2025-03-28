@@ -1,7 +1,8 @@
 .tile {
+  box-sizing: border-box;
   background: var(--color-neutral-0);
   border-radius: 12px;
-  padding: 24px;
+  padding: 0 0 1rem 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   display: flex;
@@ -10,13 +11,12 @@
   text-align: center;
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 [data-theme="dark"] .tile {
   background: hsl(225, 60%, 10%);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  padding: 0 0 24px 0;
-  overflow: hidden;
 }
 
 .tile:hover {
@@ -31,14 +31,13 @@
 .tile img {
   width: 64px;
   height: 64px;
-  margin-bottom: 16px;
+  margin: 24px auto 16px;
 }
 
 [data-theme="dark"] .tile img {
   background-color: hsl(166, 60%, 92%);
   padding: 12px;
   border-radius: 8px;
-  margin: 24px auto 16px;
 }
 
 .tile h2 {
@@ -80,13 +79,18 @@
   background: var(--color-red-700);
 }
 
-/* Toggle switch styling */
-.toggleSwitch {
-  display: none;
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+  width: 100%;
+  padding: 0 1rem;
 }
 
-/* Toggle switch styling for dark mode */
-[data-theme="dark"] .tile .toggleSwitch {
+/* Toggle switch styling */
+.toggleSwitch {
   position: absolute;
   top: 50%;
   right: 16px;
@@ -99,7 +103,8 @@
   display: block;
 }
 
-[data-theme="dark"] .tile::after {
+/* Toggle track styling */
+.buttonContainer::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -107,16 +112,17 @@
   transform: translateY(-50%);
   width: 40px;
   height: 20px;
-  background-color: hsl(210, 10%, 23%);
+  background-color: var(--color-neutral-300);
   border-radius: 10px;
   transition: background-color 0.3s ease;
 }
 
-[data-theme="dark"] .tile.active::after {
+[data-theme="dark"] .buttonContainer::after {
   background-color: hsl(210, 10%, 23%);
 }
 
-[data-theme="dark"] .tile::before {
+/* Toggle dot styling */
+.buttonContainer::before {
   content: "";
   position: absolute;
   top: 50%;
@@ -130,7 +136,8 @@
   transition: transform 0.3s ease;
 }
 
-[data-theme="dark"] .tile.active::before {
+/* Active toggle state */
+.tile.active .buttonContainer::before {
   transform: translate(22px, -50%);
   background-color: var(--color-red-500);
 } 

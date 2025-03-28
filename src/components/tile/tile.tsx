@@ -8,15 +8,17 @@ export const Tile = component$<ITileProps>(({ src, name, description, isActive }
       <img src={src} alt={name} width={64} height={64}/>
       <h2>{name}</h2>
       <p>{description}</p>
-      <button class={`${styles.button} ${isActive ? styles.remove : ''}`}>
-        {isActive ? "Remove" : "Add to Chrome"}
-      </button>
-      <input 
-        type="checkbox" 
-        checked={isActive} 
-        class={styles.toggleSwitch}
-        aria-label={`Toggle ${name} extension`}
-      />
+      <div class={styles.buttonContainer}>
+        <button class={`${styles.button} ${isActive ? styles.remove : ''}`}>
+          {isActive ? "Remove" : "Add to Chrome"}
+        </button>
+        <input 
+          type="checkbox" 
+          checked={isActive} 
+          class={styles.toggleSwitch}
+          aria-label={`Toggle ${name} extension`}
+        />
+        </div>
     </div>
   );
 }); 
